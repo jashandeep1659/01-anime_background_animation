@@ -25,7 +25,7 @@
                 blocks.classList.add("block");
                 container.appendChild(blocks);
             }
-
+            let anygoes = false;
             const animateBlocks = () => {
                 anime({
                     targets: ".block",
@@ -37,6 +37,19 @@
                     },
                     scale: function () {
                         return anime.random(1, 2);
+                    },
+                    zIndex: function () {
+                        if (!anygoes) {
+                            let randome = anime.random(1, 2);
+                            if (randome == 2) {
+                                anygoes = true;
+                                return randome;
+                            } else {
+                                return randome;
+                            }
+                        } else {
+                            return 1;
+                        }
                     },
                     ease: "linear",
                     duration: 3000,
